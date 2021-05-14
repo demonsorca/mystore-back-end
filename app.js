@@ -14,8 +14,9 @@ mongoose.connection.on('connected',() => {
     console.log('Mongoose is connected')
 })
 
+const adminRoutes = require('./api/routes/admins');
+const categoryRoutes = require('./api/routes/categories');
 const userRoutes = require('./api/routes/users');
-
 
 
 
@@ -24,7 +25,8 @@ const userRoutes = require('./api/routes/users');
 
 app.use(express.json());
 
-
+app.use('/admin', adminRoutes);
+app.use('/category', categoryRoutes);
 app.use('/user', userRoutes);
 app.use((req, res, next) => {
     res.status(404).json({
