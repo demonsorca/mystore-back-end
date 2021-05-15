@@ -8,7 +8,6 @@ const Category = require('../models/category');
 categoryTree = (parentId = "", docs) => {
     const category = docs.filter(doc => parentId == doc.parent);
 
-
     var categories = [];
     for(var cat of category){
         categories.push({
